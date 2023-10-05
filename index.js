@@ -3,6 +3,9 @@ const app = express()
 const bodyParser = require("body-parser")
 const connection = require("./database/connection")
 
+const UserController = require("./user/UserController")
+
+
 // view engine (para utilizar o ejs)
 
 app.set("view engine", "ejs")
@@ -25,6 +28,8 @@ connection
     }).catch((error) =>{
         console.log("Erro na conexão com o banco de dados")
     })
+
+app.use("/", UserController)
 
 
 
