@@ -3,9 +3,6 @@ const router = express.Router()
 const User = require("./User")
 const bcrypt = require("bcryptjs") 
 
-router.get("/login", (req, res) =>{
-    res.render("login/login.ejs")
-})
 
 router.get("/cadastro", (req, res) => {
     res.render("login/cadastro.ejs")
@@ -38,4 +35,25 @@ router.post("/cadastrar/usuario", (req, res) =>{
     })
 
 })
+
+router.get("/login", (req, res) =>{
+    res.render("login/login.ejs")
+})
 module.exports = router;
+
+router.post("/autenticarLogin", (req, res) =>{
+    var emailLogin = req.body.emailLogin
+    var senhaLogin = req.body.senhaLogin
+
+    User.findOne({where: {email: emailLogin}}).then(user =>{
+
+        if(user != undefined){
+            validacaoDeSenha = bcrypt.compareSync(senhaLogin, user.senha)
+
+            if(validacaoDeSenha){
+                
+            }
+        }
+    })
+
+})

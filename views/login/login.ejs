@@ -184,18 +184,21 @@
         <div class="bottom-right-image">
             <img src="../img/image_2Duvidas-removebg-preview 1.svg" alt="">
         </div> <!-- Adicionado a imagem no canto inferior direito -->
-        <form method="post" action="/">
+
+        <form method="post" action="/autenticarLogin">
             <div class="login">LOGIN</div>
             <div class="text-container">E-MAIL:</div>
-            <input class="input-box" type="text" placeholder="@gmail.com">
+            <input class="input-box" type="text" placeholder="@gmail.com" name="emailLogin">
             <div class="senha">SENHA:</div>
             <!-- Campo de senha com ícone de olho -->
             <div style="position: relative;">
-                <input class="caixa" type="password" id="senha" placeholder="*********">
+                <input class="caixa" type="password" id="senha" placeholder="*********" name="senhaLogin">
                 <span id="olho" class="olho" onclick="mostrarSenha()">&#128065;</span>
             </div>
             <!-- Fim do campo de senha com ícone de olho -->
-            <button class="button">ENTRAR</button>
+            <button class="button" type="submit">ENTRAR</button>
+        </form>
+        </div>
         </div>
     </div>
 
