@@ -51,8 +51,16 @@ router.post("/autenticarLogin", (req, res) =>{
             validacaoDeSenha = bcrypt.compareSync(senhaLogin, user.senha)
 
             if(validacaoDeSenha){
-                
+                req.session.user = {
+                    id: user.id,
+                    email: user.email
+                }
+                res.json(req.session.user) 
+            }else{
+                res.redirect("err1")
             }
+        }else{
+            res.redirect("err2")
         }
     })
 
