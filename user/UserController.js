@@ -3,7 +3,6 @@ const router = express.Router()
 const User = require("./User")
 const bcrypt = require("bcryptjs") 
 
-
 router.get("/cadastro", (req, res) => {
     res.render("login/cadastro.ejs")
 
@@ -39,7 +38,6 @@ router.post("/cadastrar/usuario", (req, res) =>{
 router.get("/login", (req, res) =>{
     res.render("login/login.ejs")
 })
-module.exports = router;
 
 router.post("/autenticarLogin", (req, res) =>{
     var emailLogin = req.body.emailLogin
@@ -48,20 +46,22 @@ router.post("/autenticarLogin", (req, res) =>{
     User.findOne({where: {email: emailLogin}}).then(user =>{
 
         if(user != undefined){
-            validacaoDeSenha = bcrypt.compareSync(senhaLogin, user.senha)
-
+            var validacaoDeSenha = bcrypt.compareSync(senhaLogin, user.senha)
+            
             if(validacaoDeSenha){
-                req.session.user = {
+                 req.session.user = {
                     id: user.id,
-                    email: user.email
+                    emai: user.email
                 }
                 res.json(req.session.user) 
             }else{
-                res.redirect("err1")
+                res.send("senha errada")
             }
         }else{
-            res.redirect("err2")
+            res.send("email nao cadastrado")
         }
     })
 
 })
+
+module.exports = router;

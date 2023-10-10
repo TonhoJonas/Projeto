@@ -1,8 +1,8 @@
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
-const connection = require("./database/connection")
 const session = require("express-session")
+const connection = require("./database/connection")
 const UserController = require("./user/UserController")
 
 
@@ -21,6 +21,13 @@ app.use(express.static("public"))
 
 //database connection
 
+app.use(session({
+    secret: 'your secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}))
+
 connection
     .authenticate()
     .then(() =>{
@@ -30,15 +37,6 @@ connection
     })
 
 app.use("/", UserController)
-
-
-//sessions
-
-
-app.use(session({
-    secret: "fofinho", 
-    cookie: { maxAge: 259200000}
-}))
 
 
 app.get("/" , (req,res) =>{
