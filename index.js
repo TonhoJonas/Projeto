@@ -4,6 +4,8 @@ const bodyParser = require("body-parser")
 const session = require("express-session")
 const connection = require("./database/connection")
 const UserController = require("./user/UserController")
+const InstrutorController = require("./instrutor/InstrutorController")
+
 
 
 // view engine (para utilizar o ejs)
@@ -37,6 +39,8 @@ connection
     })
 
 app.use("/", UserController)
+app.use("/", InstrutorController)
+
 
 
 app.get("/" , (req,res) =>{

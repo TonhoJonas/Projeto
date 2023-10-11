@@ -51,7 +51,8 @@ router.post("/autenticarLogin", (req, res) =>{
             if(validacaoDeSenha){
                  req.session.user = {
                     id: user.id,
-                    emai: user.email
+                    emai: user.email,
+                    nome: user.nomeUsuario
                 }
                 res.json(req.session.user) 
             }else{

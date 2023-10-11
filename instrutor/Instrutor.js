@@ -1,41 +1,46 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('instrutores', {
-    idInstrutor: {
-      type: DataTypes.INTEGER,
+const connection = require("../database/connection")
+const User = require("../user/User")
+
+
+
+  const Instrutor =  connection.define('instrutores', {
+
+    /* idInstrutor: {
+      type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true
-    },
+    }, */
     idUsuario: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: true,
       references: {
-        model: 'usuarios',
-        key: 'idUsuario'
+        model: User,
+        key: 'id'
       }
     },
     cpf: {
-      type: DataTypes.STRING(14),
+      type: Sequelize.STRING(14),
       allowNull: true
     },
     'endereço': {
-      type: DataTypes.STRING(255),
+      type: Sequelize.STRING(255),
       allowNull: true
     },
     nomeCompleto: {
-      type: DataTypes.STRING(300),
+      type: Sequelize.STRING(300),
       allowNull: true
     },
     celular: {
-      type: DataTypes.STRING(20),
+      type: Sequelize.STRING(20),
       allowNull: true
     },
     dataDeNascimento: {
-      type: DataTypes.DATEONLY,
+      type: Sequelize.DATEONLY,
       allowNull: true
     }
   }, {
-    sequelize,
+    Sequelize,
     tableName: 'instrutores',
     timestamps: false,
     indexes: [
@@ -51,9 +56,14 @@ module.exports = function(sequelize, DataTypes) {
         name: "idUsuario",
         using: "BTREE",
         fields: [
-          { name: "idUsuario" },
+          { name: "id" },
         ]
       },
     ]
   });
-};
+
+
+    Instrutor.sync({force: true}) 
+ 
+   module.exports = Instrutor
+
