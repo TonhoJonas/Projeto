@@ -40,7 +40,7 @@ app.use("/", UserController)
 
 
 app.get("/" , (req,res) =>{
-    res.render("index")
+    res.render("home/home.ejs")
 })
 
 
