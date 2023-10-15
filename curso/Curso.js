@@ -1,45 +1,41 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('cursos', {
-    idCurso: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
+const connection = require("../database/connection")
+const Instrutor = require("../instrutor/Instrutor")
+
+
+const Curso = connection.define('cursos', {
+    
+
     titulo: {
-      type: DataTypes.STRING(255),
+      type: Sequelize.STRING(255),
       allowNull: true
     },
     descricao: {
-      type: DataTypes.TEXT,
+      type: Sequelize.TEXT,
       allowNull: true
     },
     preco: {
-      type: DataTypes.DECIMAL(10,2),
-      allowNull: true
-    },
-    tipo: {
-      type: DataTypes.ENUM('gratuito','pago'),
+      type: Sequelize.DECIMAL(10,2),
       allowNull: true
     },
     idInstrutor: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: true,
       references: {
-        model: 'instrutores',
-        key: 'idInstrutor'
+        model: Instrutor,
+        key: 'id'
       }
     },
     imagemCurso: {
-      type: DataTypes.BLOB,
+      type: Sequelize.BLOB,
       allowNull: true
     },
     linkCurso: {
-      type: DataTypes.STRING(500),
+      type: Sequelize.STRING(500),
       allowNull: true
     }
   }, {
-    sequelize,
+    Sequelize,
     tableName: 'cursos',
     timestamps: false,
     indexes: [
@@ -55,9 +51,14 @@ module.exports = function(sequelize, DataTypes) {
         name: "idInstrutor",
         using: "BTREE",
         fields: [
-          { name: "idInstrutor" },
+          { name: "id" },
         ]
       },
     ]
   });
-};
+
+/*   Curso.sync({force: true})  
+ */  
+
+  module.exports = Curso
+

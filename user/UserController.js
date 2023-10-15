@@ -54,7 +54,7 @@ router.post("/autenticarLogin", (req, res) =>{
                     emai: user.email,
                     nome: user.nomeUsuario
                 }
-                res.json(req.session.user) 
+                res.redirect("/")
             }else{
                 res.send("senha errada")
             }

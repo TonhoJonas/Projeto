@@ -6,11 +6,7 @@ const User = require("../user/User")
 
   const Instrutor =  connection.define('instrutores', {
 
-    /* idInstrutor: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    }, */
+  
     idUsuario: {
       type: Sequelize.INTEGER,
       allowNull: true,
@@ -63,7 +59,7 @@ const User = require("../user/User")
   });
 
 
-    Instrutor.sync({force: true}) 
- 
+/*     Instrutor.sync({force: true}) 
+ */ 
    module.exports = Instrutor
 
