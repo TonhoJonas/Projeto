@@ -1,9 +1,25 @@
 const express = require("express")
 const router = express.Router()
 const Curso = require("./Curso")
+const User = require("../user/User")
+const Instrutor = require("../instrutor/Instrutor")
 
 router.get("/cadastro/curso", (req,res) =>{
-    res.render("curso/criarCurso.ejs")
+    if(req.session.user != undefined){
+        idUsuarioSession = req.session.user.id
+
+        User.findOne({where: {id: idUsuarioSession}}).then(usuario =>{
+            Instrutor.findOne({where: {idUsuario: usuario.id}}).then(instrutor =>{
+
+                res.render("curso/criarCurso.ejs", {usuario: usuario, instrutor: instrutor})
+            })
+            
+
+        })
+
+    }
+
+
 })
 
 router.post("/cadastrarCurso", (req, res) =>{
@@ -26,7 +42,7 @@ router.post("/cadastrarCurso", (req, res) =>{
     }).then(() => {
         res.send("cadastrado")
     }).catch((err) =>{
-        res.send("d")
+        res.send(err)
     })
 
 })

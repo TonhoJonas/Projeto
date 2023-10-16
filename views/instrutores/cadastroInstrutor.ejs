@@ -10,7 +10,8 @@
     <form action="/cadastrarInstrutor" method="post">
 
         <label>Usuário:</label>
-        <input type="text" placeholder="" value="" name="idUsuario">
+        <input type="text" placeholder="<%= usuario.nomeUsuario %>" disabled>
+        <input type="text" value="<%= usuario.id %>" name="idUsuario">
 
         <label>Nome Completo:</label>
         <input type="text" placeholder="" value="" name="nomeInstrutor">

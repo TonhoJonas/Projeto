@@ -2,15 +2,23 @@ const express = require("express")
 const router = express.Router()
 const Instrutor = require("./Instrutor")
 const idSessionUsuario = require("../middlewares/idSessionUsuario")
+const User = require("../user/User")
 
 router.get("/cadastro/instrutor", (req, res) =>{
+    
+    if(req.session.user != undefined){
+        idUsuarioSession = req.session.user.id
 
-res.render("instrutores/cadastroInstrutor.ejs")
- 
-/*     res.send(idSessionUsuario)
- */    
-})
+        User.findOne({where: {id: idUsuarioSession}}).then(usuario =>{
+            res.render("instrutores/cadastroInstrutor.ejs", {usuario: usuario})
 
+        })
+
+    }
+
+    })
+
+    
 router.post("/cadastrarInstrutor", (req, res) =>{
     const idUsuario = req.body.idUsuario
     const nomeInstrutor = req.body.nomeInstrutor
@@ -27,10 +35,12 @@ router.post("/cadastrarInstrutor", (req, res) =>{
         celular: contatoInstrutor,
         dataDeNascimento: dataNascimentoInstrutor
     }).then(() =>{
-        res.send("cadastrado")
+        res.redirect("/")
     }).catch((err) =>{
         res.send("/f")
     })
+
+    req.session.authenticate
 })
 
 module.exports = router;

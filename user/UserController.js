@@ -65,6 +65,11 @@ router.post("/autenticarLogin", (req, res) =>{
 
 })
 
+
+router
+
+
+
 router.get("/logout", (req, res) => {
     req.session.user = undefined
     res.redirect("/")
