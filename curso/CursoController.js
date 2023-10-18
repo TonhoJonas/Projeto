@@ -3,19 +3,23 @@ const router = express.Router()
 const Curso = require("./Curso")
 const User = require("../user/User")
 const Instrutor = require("../instrutor/Instrutor")
+const Categoria = require("./Categoria")
 
 router.get("/cadastro/curso", (req,res) =>{
     if(req.session.user != undefined){
         idUsuarioSession = req.session.user.id
 
-        User.findOne({where: {id: idUsuarioSession}}).then(usuario =>{
-            Instrutor.findOne({where: {idUsuario: usuario.id}}).then(instrutor =>{
-
-                res.render("curso/criarCurso.ejs", {usuario: usuario, instrutor: instrutor})
+        Categoria.findAll().then(categorias =>{
+            User.findOne({where: {id: idUsuarioSession}}).then(usuario =>{
+                Instrutor.findOne({where: {idUsuario: usuario.id}}).then(instrutor =>{
+    
+                    res.render("curso/criarCurso.ejs", {usuario: usuario, instrutor: instrutor, categorias: categorias})
+                })
+                
+    
             })
-            
-
         })
+       
 
     }
 
@@ -29,6 +33,7 @@ router.post("/cadastrarCurso", (req, res) =>{
     const instrutorCurso = req.body.instrutorCurso
     const imagem = req.body.imagemCurso
     const link = req.body.linkCurso
+    const categoria = req.body.categoria
 
     Curso.create({
         titulo: tituloCurso,
@@ -36,7 +41,8 @@ router.post("/cadastrarCurso", (req, res) =>{
         preco: precoCurso,
         idInstrutor: instrutorCurso,
         imagemCurso: imagem,
-        linkCurso: link
+        linkCurso: link,
+        idCategoria: categoria 
 
 
     }).then(() => {

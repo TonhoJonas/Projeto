@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const connection = require("../database/connection")
 const Instrutor = require("../instrutor/Instrutor")
+const Categoria = require("./Categoria")
 
 
 const Curso = connection.define('cursos', {
@@ -23,6 +24,14 @@ const Curso = connection.define('cursos', {
       allowNull: true,
       references: {
         model: Instrutor,
+        key: 'id'
+      }
+    },
+    idCategoria: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      references: {
+        model: Categoria,
         key: 'id'
       }
     },
@@ -51,14 +60,21 @@ const Curso = connection.define('cursos', {
         name: "idInstrutor",
         using: "BTREE",
         fields: [
-          { name: "id" },
+          { name: "idInstrutor" },
         ]
       },
+      {
+        name: "idCategoria",
+        using: "BTREE",
+        fields: [
+          { name: "idCategoria" },
+        ]
+      }
     ]
   });
 
-/*   Curso.sync({force: true})  
- */  
+/*    Curso.sync({force: true})  
+ */   
 
   module.exports = Curso
 

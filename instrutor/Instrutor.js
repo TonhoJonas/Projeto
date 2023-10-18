@@ -59,7 +59,7 @@ const User = require("../user/User")
   });
 
 
-/*     Instrutor.sync({force: true}) 
- */ 
+/*      Instrutor.sync({force: true}) 
+ */  
    module.exports = Instrutor
 

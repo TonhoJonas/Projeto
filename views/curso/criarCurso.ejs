@@ -23,6 +23,12 @@
         <input type="number" placeholder="<%= usuario.nomeUsuario %>" disabled>
         <input type="number" value="<%= instrutor.id %>" name="instrutorCurso">
 
+        <label>Categoria:</label>
+        <select name="categoria" class="form-control">
+            <% categorias.forEach((categoria) => { %>
+                <option name="categoria" value="<%= categoria.id %>"> <%= categoria.title %> </option>
+            <% }) %>
+
 
         <label>Imagem:</label>
         <input type="text" placeholder="" value="" name="imagemCurso">

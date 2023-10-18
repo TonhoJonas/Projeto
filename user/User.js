@@ -42,6 +42,6 @@ const connection = require("../database/connection")
     ]
   });
 
-   /* User.sync({force: true}) */
- 
+/*     User.sync({force: true}) 
+ */ 
   module.exports = User
