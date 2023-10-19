@@ -18,3 +18,4 @@ const connection = new Sequelize('railway', 'root', 'Qig7wZRmxImGvBNm0DHH', {
 })
 
 module.exports = connection
+//
