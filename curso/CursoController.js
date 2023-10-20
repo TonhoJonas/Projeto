@@ -53,5 +53,9 @@ router.post("/cadastrarCurso", (req, res) =>{
 
 })
 
+router.get("/assistir/curso", (req, res) =>{
+    res.render("curso/assistirCurso.ejs")
+})
+
 
 module.exports = router
