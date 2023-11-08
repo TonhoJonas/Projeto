@@ -5,6 +5,7 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
     font-weight: 700;
+    
 }
 
 html{
@@ -23,14 +24,14 @@ html{
 }
 header{
     width: 100%;
-    padding:60px 4%;
+    padding:16px 4%;
     position: fixed;
     top: 0;
     left: 0;
     transition: 0.5s;
 }
 header.rolagem{
-  background-color: greenyellow;
+  background-color: #539B2D;
 
 }
 header.rolagem a,header.rolagem i{
@@ -146,4 +147,23 @@ header ul li a{
     background: transparent;
   }
 
-  
+  .textocont{
+    color: #539B2D;
+    text-align:center;
+    margin-top: 80px;
+   
+  }
+.textocont h1{
+  margin-bottom: 20px;
+}
+
+.Sobre{
+  background-image: url("../img/fundo2.jpeg");
+}
+
+.logo{
+  object-fit:contain;
+  width: 150px;
+  /* height: 87px; */
+  flex-shrink: 0;
+}
