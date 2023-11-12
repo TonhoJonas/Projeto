@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../views/css.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,8 +21,9 @@
                         <li><a href="" class="navheader">Home</a></li>
                         <li><a href="">Cursos</a></li>
                         <li><a href="">Sobre</a></li>
-                        <li><a href="">Contato</a></li>
                         <li><a href="">Serviços</a></li>
+                        <li><a href="">Contato</a></li>
+                       
 
                     </ul>
 
@@ -38,24 +40,35 @@
     <section class="banner"><h1>Aprenda com <span>o Agro!</span></h1></section>
     <script src="../views/menu.js"></script>
     <section class="Sobre">
+        
     <div class="textocont">
         <h1>Sobre a Agritech Academy</h1>
+        <div class="sobreATA">
         <h3 >Bem-vindo à  Agritech Academy, onde cultivamos o conhecimento para colher o sucesso no campo. Nossa jornada começou com a visão de capacitar agricultores e entusiastas do agronegócio a prosperar em um mundo agrícola em constante evolução.</h3>
-        <p>A Nossa Missão: Na Agritech Academy, estamos comprometidos em ser o farol de conhecimento para todos os interessados no universo da agricultura. A nossa missão é simples, mas poderosa: capacitamos pessoas com as habilidades e o conhecimento necessários para prosperar no campo. Acreditamos que, ao fornecer educação de alta qualidade, podemos ajudar a impulsionar a indústria agrícola e criar um futuro mais promissor para todos os envolvidos.</p>
-        <p>O Que Oferecemos: Nossa plataforma educacional, a AgriTech Academy, oferece uma ampla variedade de cursos e recursos destinados a atender às necessidades de iniciantes, especialistas e profissionais da agricultura. De cursos práticos de operação de máquinas agrícolas a palestras sobre as mais recentes tecnologias agrícolas, temos algo para todos.</p>
+        </div>
+        <img src="../img/planta.svg" alt="panta">
+    </div>
         
     </section>
-            <img class="drone" src="/SITE/imagens/Imagem do WhatsApp de 2023-09-14 à(s) 01.00 1drone.svg" alt="">
-            <p class="textocur">Curso Avançado de Drone Agrícola: Escaneamento para Plantio de Precisão</p>
-            <img class="setabaixo" src="/SITE/imagens/image 8imagem seta baixo.svg" alt="">
+    <section class="servicos">
+        <div class="servicos1">
+            <h3>Cursos Especializados:</h3>
+            <p>Oferta de uma ampla gama de cursos especializados, como gestão agrícola, inovação tecnológica no campo, práticas sustentáveis, gestão de cultivos, entre outros.</p>
+            <br>
+            <h3>Plataforma de Educação Online:</h3>
+            <p>Acesso a uma plataforma digital com aulas, vídeos, material didático e fóruns de discussão para aprendizado remoto e contínuo.</p>
         </div>
-        <div class="quadrados">
-            <img class="drone" src="/SITE/imagens/Imagem do WhatsApp de 2023-09-14 à(s) 01.01 1web.svg" alt="">
-            <p class="textocur">Curso de Semântica Aplicada à Tecnologia Agrícola</p>
-            <img class="setabaixo" src="/SITE/imagens/image 8imagem seta baixo.svg" alt="">
+        <div class="servicos2">
+            <h3>Certificação e Credenciamento:</h3>
+            <p>Possibilidade de certificação ou credenciamento após a conclusão bem-sucedida dos cursos, agregando valor ao currículo dos participantes.</p>
+            <br>
+            <h3>Material Didático Especializado:</h3>
+            <p>Disponibilização de material educativo específico, como manuais, e-books e guias práticos, para complementar o aprendizado.</p>
         </div>
-        <img class="setadirei" src="/SITE/imagens/image 6seta dire.svg" alt="">
-    </div>
+    
+    
+            
+    </section>
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
@@ -148,22 +161,16 @@
             2023 all rights reserved
         </div>
     </footer>    
-
-
-    <!-- Conteúdo do site -->
-    <main>
-        <!-- O conteúdo do site vai aqui -->
-    </main>
-    <script>
-        var images = [,,]; // Substitua por suas imagens
-        var index = 0;
-        
-        setInterval(function() {
-            document.body.style.backgroundImage = 'url(' + images[index] + ')';
-            index = (index + 1) % images.length;
-        }, 180000); // Troca a imagem a cada 3 minutos
-
-    </script>
 </body>
+<script>
+    var images = [,,]; // Substitua por suas imagens
+    var index = 0;
+    
+    setInterval(function() {
+        document.body.style.backgroundImage = 'url(' + images[index] + ')';
+        index = (index + 1) % images.length;
+    }, 180000); // Troca a imagem a cada 3 minutos
+
+</script>
 
 </html>
