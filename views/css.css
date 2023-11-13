@@ -21,13 +21,7 @@
 
 }
 
-:root {
-  --color-neutral-0: #0e0c0c;
-  --color-neutral-10: #171717;
-  --color-neutral-30: #a8a29e;
-  --color-neutral-40: #f5f5f5;
 
-}
 
 * {
   margin: 0;
@@ -203,6 +197,12 @@ button {
   width:  40%;
   
 }
+.direita {
+  width: 50vw;
+  display: flex;
+  width:  40%;
+  
+}
 
 .img-planta {
   height: 100%;
@@ -224,7 +224,27 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 100px;
   
+}
+.Sobre h1{
+  margin-bottom: 60px;
+  color: #539B2D;
+}
+.Servico {
+  background-image: url("../img/fundo2.jpeg");
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  
+}
+.Servico h1{
+  margin-bottom: 60px;
+  color: #539B2D;
 }
 
 .logo {
@@ -254,6 +274,7 @@ body {
 
 footer{
   width: 100vw;
+  background-color: #539B2D;
 }
 
 .container-footer{
@@ -289,4 +310,16 @@ footer{
     flex-direction: column;
   }
 
+}
+
+.coluna p{
+  color:#fff;
+}
+iframe{
+  height: 200px;
+  width: 260px;
+
+}
+.coluna h5{
+  color: #fff;
 }
